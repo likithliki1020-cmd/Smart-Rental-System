@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.brass.DEFAULT");
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+
+  /* Colorful pill status badge — replaces the old rotated "ledger stamp" look */
+  .ledger-stamp {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+
+  /* Modern card: white surface, soft shadow, rounded corners, subtle border */
+  .ledger-panel {
+    @apply rounded-md border border-line bg-paper-raised shadow-card;
+  }
+
+  .ledger-hairline {
+    @apply border-b border-line;
+  }
+
+  /* Reusable gradient surface for hero/emphasis areas */
+  .brand-surface {
+    @apply bg-brand-gradient text-white;
+  }
+}
